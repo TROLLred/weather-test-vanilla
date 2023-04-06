@@ -72,6 +72,31 @@
             top: vw($spacing-20);
             left: vw($spacing-20);
         }
+
+        &::after {
+            pointer-events: none;
+            position: absolute;
+            left: 120%;
+            
+            @extend .text-3;
+            content: 'Copied!';
+            color: $white;
+
+            padding: rem($spacing-8) rem($spacing-16);
+            background-color: rgba($text-color, .2);
+            border-radius: $spacing-100;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility $base-transition-time, opacity $base-transition-time;
+        }
+    }
+
+    &__copy._tooltip-show {
+        &::after {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__title {
