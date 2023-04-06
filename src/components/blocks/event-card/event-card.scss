@@ -80,7 +80,7 @@
             
             @extend .text-3;
             content: 'Copied!';
-            color: $white;
+            color: rgba($white, .8);
 
             padding: rem($spacing-8) rem($spacing-16);
             background-color: rgba($text-color, .2);
