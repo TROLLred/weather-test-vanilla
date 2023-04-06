@@ -22,25 +22,30 @@
     }
 }
 
-//TODO: Формулу расчета шрифтов надо перепроверить
-@mixin font($desktop-1920, $desktop-1440, $desktop-1280, $tablet-768, $mobile) {
-    font-size: #{$mobile}px;
+@mixin font($desktop-fhd, $desktop-xxl, $desktop-xl, $tablet-md, $mobile) {
+    font-size: rem($mobile);
 
-    @include media-breakpoint-up(md) {
-        font-size: calc(#{smooth-value($tablet-768, $desktop-1280, map-get($breakpoints, md), map-get($breakpoints, xl), 'w')});
+    @if  $tablet-md != $mobile {
+        @include media-breakpoint-up(md) {
+            font-size: #{clamped($tablet-md, $desktop-xl, map-get($breakpoints, 'md'), map-get($breakpoints, 'xl'))};
+        }
     }
 
-    @include media-breakpoint-up(xl) {
-        font-size: calc(#{smooth-value($desktop-1280, $desktop-1440, map-get($breakpoints, xl), map-get($breakpoints, xxl), 'w')});
+    @if  $tablet-md != $desktop-xl {
+        @include media-breakpoint-up(xl) {
+            font-size: #{clamped($desktop-xl, $desktop-xxl, map-get($breakpoints, 'xl'), map-get($breakpoints, 'xxl'))};
+        }
     }
 
-    @include media-breakpoint-up(xxl) {
-        font-size: calc(#{smooth-value($desktop-1440, $desktop-1920, map-get($breakpoints, xxl), map-get($breakpoints, fhd), 'w')});
+    @if  $desktop-xxl != $desktop-xl {
+        @include media-breakpoint-up(xxl) {
+            font-size: #{clamped($desktop-xxl, $desktop-fhd, map-get($breakpoints, 'xxl'), map-get($breakpoints, 'fhd'))};
+        }
     }
 
-    //@include media-breakpoint-up(2k) {
-    //    font-size: calc(#{$desktop-fhd / 1920 * 100 / 2}vw + #{$desktop-fhd / 1080 * 100 / 2}vh);
-    //}
+    @include media-breakpoint-up(fhd) {
+        font-size: #{vw($desktop-fhd)};
+    }
 }
 
 //TODO: Формулу расчета шрифтов надо перепроверить

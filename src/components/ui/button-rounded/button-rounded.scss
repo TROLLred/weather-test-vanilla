@@ -1,0 +1,38 @@
+.button-rounded {
+    $root: &;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba($text-color, .2);
+    transition: background-color $base-transition-time;
+    &:hover, &:active {
+        background-color: rgba($text-color, .5);
+    }
+
+    // дефолт размеры - перезатирать на слайдере и навигации
+    width: rem(30);
+    height: rem(30);
+    @include media-breakpoint-up(xl) {
+        width: rem(34);
+        height: rem(34);
+    }
+    @include media-breakpoint-up(fhd) {
+        width: vw(50);
+        height: vw(50);
+    }
+
+    &__icon, svg {
+        // TODO - fill или stroke вставить
+        width: rem(14);
+        height: rem(14);
+        @include media-breakpoint-up(xl) {
+            width: rem(16);
+            height: rem(16);
+        }
+        @include media-breakpoint-up(fhd) {
+            width: vw(24);
+            height: vw(24);
+        }
+    }
+}

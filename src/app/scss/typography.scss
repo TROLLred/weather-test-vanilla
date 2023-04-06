@@ -1,24 +1,112 @@
-
 @mixin h1 {
+    font-family: $font-graphik-lcg;
+    font-weight: 700;
     line-height: 1;
+    @include font(40, 26, 26, 18, 16);
+}
+
+@mixin h2 {
+    font-family: $font-graphik-lcg;
+    font-weight: 600;
+    line-height: 1;
+    @include font(36, 24, 24, 20, 18);
+}
+
+@mixin h3 {
+    font-family: $font-graphik-lcg;
+    font-weight: 700;
+    line-height: 1.4;
+    @include font(26, 17, 17, 14, 14);
+}
+// голубые заголовки 
+@mixin text1 {
+    font-family: $font-graphik-lcg;
+    font-weight: 500;
+    line-height: 1;
+
+    @include font(20, 14, 14, 12, 12);
+}
+// 
+@mixin text2 {
+    font-family: $font-graphik-lcg;
+    font-weight: 400;
+    line-height: 1;
+    @include font(18, 12, 12, 12, 12);
+}
+//  
+@mixin text3 {
+    font-family: $font-graphik-lcg;
+    font-weight: 400;
+    line-height: 1;
+    @include font(18, 12, 12, 11, 11);
+}
+// лейблы в погоде
+@mixin text4 {
+    font-family: $font-graphik-lcg;
+    font-weight: 400;
+    line-height: 1;
+    @include font(14, 12, 12, 10, 10);
+}
+// лейбл свича темы
+@mixin label {
+    font-family: $font-roboto;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    @include font(18, 14, 14, 12, 12);
+}
+// большая цифра в прогнозе
+@mixin bigNumber {
+    font-family: $font-graphik-lcg;
+    font-weight: 600;
+    line-height: 1;
+    @include font(80, 54, 54, 36, 36);
+}
+// маленькая цифра в прогнозе
+@mixin smallNumber {
+    font-family: $font-graphik-lcg;
     font-weight: normal;
-    @include rem-adaptive-font(30, 60, 60, 80);
+    line-height: 1;
+    @include font(20, 14, 14, 12, 12);
 }
 
-@mixin body1 {
-    @include rem-adaptive-font(14, 14, 16, 16);
-    line-height: 1.5;
-}
-
-
-// Заголовки
+// Extendable classes
 .h-1 {
     @include h1;
 }
 
+.h-2 {
+    @include h2;
+}
 
-// Обычный текст
+.h-3 {
+    @include h3;
+}
 
-.body-1 {
-    @include body1;
+.text-1 {
+    @include text1;
+}
+
+.text-2 {
+    @include text2;
+}
+
+.text-3 {
+    @include text3;
+}
+
+.text-4 {
+    @include text4;
+}
+
+.label {
+    @include label;
+}
+
+.big-number {
+    @include bigNumber;
+}
+
+.small-number {
+    @include smallNumber;
 }

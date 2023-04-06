@@ -1,0 +1,17 @@
+mixin event-card(props)
+    .event-card&attributes(attributes)(data-component='event-card')
+        .event-card__bg
+            if props.picture
+                +picture(props.picture).event-card__picture
+            if props.copyButton
+                +button-rounded(props.copyButton).event-card__copy
+
+        .event-card__description
+            if props.title
+                h3.event-card__title!=props.title
+            if props.subtitle
+                p.event-card__subtitle!=props.subtitle
+            if props.info
+                ul.event-card__info
+                    each item in props.info
+                        .event-card__info-element!=item

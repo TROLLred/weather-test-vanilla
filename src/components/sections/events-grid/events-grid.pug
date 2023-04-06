@@ -1,0 +1,6 @@
+mixin events-grid(props)
+    section.events-grid&attributes(attributes)
+        if props.eventsList
+            .events-grid__wrapper
+                each event in props.eventsList
+                    +event-card(event).events-grid__card

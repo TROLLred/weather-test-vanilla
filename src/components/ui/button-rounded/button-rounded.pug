@@ -1,0 +1,4 @@
+mixin button-rounded(props)
+    button.button-rounded&attributes(attributes)(data-component='button-rounded')
+        if props.icon
+            +svg(props.icon).button-rounded__icon

@@ -1,3 +1,28 @@
+// GraphikLCG
+
+$font-graphik-lcg-name: 'GraphikLCG';
+$font-graphik-lcg: $font-graphik-lcg-name, Arial, sans-serif;
+
+$fonts-graphik-lcg: (
+    'GraphikLCG-Regular': 400,
+    'GraphikLCG-Medium': 500,
+    'GraphikLCG-Semibold': 600,
+    'GraphikLCG-Bold': 700
+);
+
+@each $font, $weight in $fonts-graphik-lcg {
+    @font-face {
+        font-family: $font-graphik-lcg-name;
+        src: url('../../assets/fonts/#{$font-graphik-lcg-name}/#{$font}.ttf') format('truetype'),
+            url('../../assets/fonts/#{$font-graphik-lcg-name}/#{$font}.woff') format('woff');
+        font-weight: $weight;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+
+// Roboto
+
 $font-roboto-name: 'Roboto';
 $font-roboto: $font-roboto-name, Arial, sans-serif;
 

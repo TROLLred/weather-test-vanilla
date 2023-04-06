@@ -1,0 +1,161 @@
+.event-card {
+    $root: &;
+
+    position: relative;
+    // подфиксить стили на случай наличия picture или его отсутствия, а также
+    // разобраться куда лучше навесить overflow hidden и border-radus
+    &__bg {
+        position: relative;
+        overflow: hidden;
+        border-radius: rem($spacing-10);
+        @include media-breakpoint-up(md) {
+            border-radius: rem($spacing-12);
+        }
+        @include media-breakpoint-up(fhd) {
+            border-radius: vw($spacing-16);
+        }
+
+        img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: vw(220, xs);
+            @include media-breakpoint-up(md) {
+                height: vw(220, md);
+            }
+            @include media-breakpoint-up(xl) {
+                height: vw(200, xl);
+            }
+            @include media-breakpoint-up(fhd) {
+                height: vw(300);
+            }
+        }
+    }
+
+    &__picture {
+        display: block;
+        overflow: hidden;
+        border-radius: rem($spacing-10);
+        @include media-breakpoint-up(md) {
+            border-radius: rem($spacing-12);
+        }
+        @include media-breakpoint-up(fhd) {
+            border-radius: vw($spacing-16);
+        }
+
+        //background-color: black;
+        width: 100%;
+        height: vw(220, xs);
+        @include media-breakpoint-up(md) {
+            height: vw(220, md);
+        }
+        @include media-breakpoint-up(xl) {
+            height: vw(200, xl);
+        }
+        @include media-breakpoint-up(fhd) {
+            height: vw(300);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    &__copy {
+        position: absolute;
+        top: rem($spacing-12);
+        left: rem($spacing-12);
+        @include media-breakpoint-up(fhd) {
+            top: vw($spacing-20);
+            left: vw($spacing-20);
+        }
+    }
+
+    &__title {
+        color: var(--text-color);
+        @extend .h-3;
+    }
+
+    &__subtitle {
+        @extend .text-2;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        @extend .text-2;
+        // maybe через опасити
+        color: rgba($text-color, 0.6);
+
+        // change list style
+        counter-reset: li;
+        list-style-type: disc;
+    }
+
+    &__info-element {
+        counter-increment: step-counter;
+        &:not(:first-child) {
+            margin-left: rem($spacing-12);
+            @include media-breakpoint-up(fhd) {
+                margin-left: vw($spacing-20);
+            }
+            &::before {
+                content: counter(step-counter, disc);
+                margin-right: rem($spacing-12);
+                @include media-breakpoint-up(fhd) {
+                    margin-right: vw($spacing-20);
+                }
+            }
+        }
+    }
+
+    &__description, &__subtitle, &__info {
+        margin-top: rem($spacing-8);
+        @include media-breakpoint-up(xl) {
+            margin-top: rem($spacing-12);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-20);
+        }
+    }
+
+    &._slide {
+        height: vw(560); //add height for img
+        #{$root}__description {
+            color: $white; // fix color
+            position: absolute;
+            left: vw($spacing-40);
+            bottom: vw($spacing-40);
+        }
+        #{$root}__copy {
+            width: rem(36);
+            height: rem(36);
+            @include media-breakpoint-up(xl) {
+                width: rem(40);
+                height: rem(40);
+            }
+            @include media-breakpoint-up(fhd) {
+                width: vw(60);
+                height: vw(60);
+            }
+
+            svg {
+                // TODO - fill или stroke вставить
+                width: rem(17);
+                height: rem(17);
+                @include media-breakpoint-up(xl) {
+                    width: rem(19);
+                    height: rem(19);
+                }
+                @include media-breakpoint-up(fhd) {
+                    width: vw(29);
+                    height: vw(29);
+                }
+            }
+        }
+    }
+}

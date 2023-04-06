@@ -1,10 +1,12 @@
 import { ITransitionData } from '@barba/core/dist/core/src/defs';
 import Component from '@/base/component';
-import Example from '@/components/ui/example/example';
+import EventCard from '@/components/blocks/event-card/event-card';
+import ButtonRounded from '@/components/ui/button-rounded/button-rounded';
 
 // Набор всех компонентов, для которых будет применяться стандартная инициализация
 const allComponents: Record<string, any & Component> = {
-    example: Example,
+    'event-card': EventCard,
+    'button-rounded': ButtonRounded,
 };
 
 export default {

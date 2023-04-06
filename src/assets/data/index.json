@@ -1,3 +1,205 @@
 {
-    "title": "Hallo"
+    "title": "Hallo",
+    "leadSlider": {
+        "title": "Ближайшие мероприятия",
+        "slider": {
+            "slides": [
+                {
+                    "picture": {
+                        "sources": [
+                            {
+                                "src": "/images/EventsGrid/woman.jpg",
+                                "breakpoint": "1920"
+                            },
+                            {
+                                "src": "/images/EventsGrid/woman.jpg",
+                                "breakpoint": "1280"
+                            },
+                            {
+                                "src": "/images/EventsGrid/woman.jpg",
+                                "breakpoint": "768"
+                            }
+                        ],
+                        "src": "/images/EventsGrid/woman.jpg"
+                    },
+                    "title": "Евгений Чебатков",
+                    "subtitle": "Новая программа в сольном стендап-концерте Евгения Чебаткова",
+                    "info": ["25 апреля, 19:00", "Зимний театр"]
+                },
+                {
+                    "picture": {
+                        "sources": [
+                            {
+                                "src": "/images/EventsGrid/woman.jpg",
+                                "breakpoint": "1920"
+                            },
+                            {
+                                "src": "/images/EventsGrid/woman.jpg",
+                                "breakpoint": "1280"
+                            },
+                            {
+                                "src": "/images/EventsGrid/woman.jpg",
+                                "breakpoint": "768"
+                            }
+                        ],
+                        "src": "/images/EventsGrid/woman.jpg"
+                    },
+                    "title": "Евгений Чебатков",
+                    "subtitle": "Новая программа в сольном стендап-концерте Евгения Чебаткова",
+                    "info": ["25 апреля, 19:00", "Зимний театр"]
+                }
+            ],
+            "navigation": {
+                "prevBtn": "arrow-left",
+                "nextBtn": "arrow"
+            }
+        },
+        "widgets": {
+            "mockWeather": {
+                "location": "Погода в Сочи",
+                "date": "Пятница, 31 марта",
+                "wetaher": {
+                    "icon": "rain",
+                    "angle": "+10°",
+                    "feels": [
+                        "Дождь",
+                        "Ощущается как +6°"
+                    ]
+                },
+                "prognose": [
+                    {
+                        "times": "Вечером",
+                        "icon": "cloud",
+                        "angle": "+5°"
+                    },
+                    {
+                        "times": "Ночью",
+                        "icon": "cloud",
+                        "angle": "+3°"
+                    },
+                    {
+                        "times": "Утром",
+                        "icon": "cloud",
+                        "angle": "+4°"
+                    }
+                ]
+            },
+            "theme": {
+                "title": "Переключение темы",
+                "label": "Светлая"
+            }
+        }
+    },
+    "eventsGrid": {
+        "eventsList": [
+            {
+                "picture": {
+                    "sources": [
+                        {
+                            "srcset": "../../assets/images/eventsGrid/woman.jpg",
+                            "breakpoint": 768
+                        }
+                    ],
+                    "img": {
+                        "src": "../../assets/images/eventsGrid/woman.jpg"
+                    }
+                },
+                "copyButton": {
+                    "icon": "chain"
+                },
+                "title": "Моя Мишель",
+                "info": ["1 апреля, 19:00", "Роза Холл"]
+            },
+            {
+                "picture": {
+                    "sources": [
+                        {
+                            "srcset": "../../assets/images/eventsGrid/castle.jpg",
+                            "breakpoint": 768
+                        }
+                    ],
+                    "img": {
+                        "src": "../../assets/images/eventsGrid/castle.jpg"
+                    }
+                },
+                "copyButton": {
+                    "icon": "chain"
+                },
+                "title": "Сочи Парк",
+                "info": ["март — май", "Сочи Парк"]
+            },
+            {
+                "picture": {
+                    "sources": [
+                        {
+                            "srcset": "../../assets/images/eventsGrid/boysBand.jpg",
+                            "breakpoint": 768
+                        }
+                    ],
+                    "img": {
+                        "src": "../../assets/images/eventsGrid/boysBand.jpg"
+                    }
+                },
+                "copyButton": {
+                    "icon": "chain"
+                },
+                "title": "Concord Orchestra. Симфоническое рок-шоу «Рождение мира»",
+                "info": ["1 апреля, 19:00", "Роза Холл"]
+            },
+            {
+                "picture": {
+                    "sources": [
+                        {
+                            "srcset": "../../assets/images/eventsGrid/horse.jpg",
+                            "breakpoint": 768
+                        }
+                    ],
+                    "img": {
+                        "src": "../../assets/images/eventsGrid/horse.jpg"
+                    }
+                },
+                "copyButton": {
+                    "icon": "chain"
+                },
+                "title": "Конные прогулки по живописным местам Адлера",
+                "info": ["март — июнь", "Конные прогулки по живописным..."]
+            },
+            {
+                "picture": {
+                    "sources": [
+                        {
+                            "srcset": "../../assets/images/eventsGrid/lake.jpg",
+                            "breakpoint": 768
+                        }
+                    ],
+                    "img": {
+                        "src": "../../assets/images/eventsGrid/lake.jpg"
+                    }
+                },
+                "copyButton": {
+                    "icon": "chain"
+                },
+                "title": "«Золотое кольцо Абхазии»: Гагры, Рица, Новый Афон",
+                "info": ["апрель — июнь", "Золотое кольцо Абхазии"]
+            },
+            {
+                "picture": {
+                    "sources": [
+                        {
+                            "srcset": "../../assets/images/eventsGrid/clown.jpg",
+                            "breakpoint": 768
+                        }
+                    ],
+                    "img": {
+                        "src": "../../assets/images/eventsGrid/clown.jpg"
+                    }
+                },
+                "copyButton": {
+                    "icon": "chain"
+                },
+                "title": "New Star Camp. L’One",
+                "info": ["1 апреля, 19:00", "Аллея флагов"]
+            }
+        ]
+    }
 }

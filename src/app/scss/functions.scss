@@ -14,20 +14,18 @@
 }
 
 @function vw($value, $base: fhd) {
-    @return $value / map-get($breakpoints, $base) * 100vw;
+    @return strip-unit($value) / map-get($breakpoints, $base) * 100vw;
 }
 
-@function vh($value, $base: 1080) {
-    @if ($base == $mobile-base-height) {
-        @return #{$value}px;
-    }
-    @return $value / $base * 100vh;
+@function vh($value, $base: fhd) {
+    @return strip-unit($value) / map-get($breakpoints-height, $base) * 100vh;
 }
 
 @function strip-unit($number) {
     @if type-of($number) == 'number' and not unitless($number) {
         @return $number / ($number * 0 + 1);
     }
+
     @return $number;
 }
 
@@ -36,5 +34,28 @@
 }
 
 @function rem($size, $root-font-size: 16) {
-    @return  unit($size, $root-font-size) * 1rem;
+    @return  unit(strip-unit($size), $root-font-size) * 1rem;
+}
+
+@function round($number, $places: 0) {
+    $n: 1;
+
+    @if $places > 0 {
+        @for $i from 1 through $places {
+            $n: $n * 10;
+        }
+    }
+
+    @return math.div(math.round($number * $n), $n);
+}
+
+// TODO: округлять?
+@function clamped($min-px, $max-px, $min-breakpoint, $max-breakpoint) {
+    $slope: ($max-px - $min-px) / ($max-breakpoint - $min-breakpoint);
+    $slope-vw: $slope * 100;
+    $intercept-rems: rem($min-px - $slope * $min-breakpoint);
+    $min-rems: rem($min-px);
+    $max-rems: rem($max-px);
+
+    @return clamp(#{$min-rems}, calc(#{$slope-vw}vw + #{$intercept-rems}), #{$max-rems});
 }

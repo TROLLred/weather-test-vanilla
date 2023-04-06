@@ -5,7 +5,5 @@ export default class Footer extends Component {
         super(element);
     }
 
-    destroy = () => {
-        // Destroy functions
-    };
+    destroy = () => {};
 }
