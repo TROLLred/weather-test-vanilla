@@ -21,8 +21,6 @@ export default class EventCard extends Component {
 
         this.copyBtn = this.getElement('copy');
         this.copyBtn?.addEventListener('click', this.copyToClipBoard);
-
-        this.templateAssembly();
     }
 
     templateAssembly = () => {
