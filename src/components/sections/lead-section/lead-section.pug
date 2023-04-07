@@ -1,0 +1,11 @@
+mixin lead-section(props)
+    section.lead-section&attributes(attributes)
+        //(data-component='lead-section')
+        if props.title
+            h2.lead-section__title!=props.title
+        .lead-section__wrapper
+            if props.slider
+                +events-slider(props.slider).lead-section__slider
+            if props.widgets
+                .lead-section__widgets
+

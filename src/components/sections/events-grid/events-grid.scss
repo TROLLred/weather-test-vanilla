@@ -1,6 +1,6 @@
 .events-grid {
     $root: &;
-    padding: 0 var(--offset-side-right) 0 var(--offset-side-left);
+    padding: 0 var(--offset-side-right) var(--offset-side-bottom) var(--offset-side-left);
 
     &__wrapper {
         display: grid;

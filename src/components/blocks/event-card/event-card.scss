@@ -5,6 +5,7 @@
     // подфиксить стили на случай наличия picture или его отсутствия, а также
     // разобраться куда лучше навесить overflow hidden и border-radus
     &__bg {
+        //height: 100%;
         position: relative;
         overflow: hidden;
         border-radius: rem($spacing-10);
@@ -15,11 +16,18 @@
             border-radius: vw($spacing-16);
         }
 
+        &:hover {
+            img {
+                transform: scale(1.3);
+            }
+        }
+
         img {
             object-fit: cover;
             object-position: center;
             width: 100%;
             height: vw(220, xs);
+            transition: transform $base-transition-time ease-in-out;
             @include media-breakpoint-up(md) {
                 height: vw(220, md);
             }
@@ -33,19 +41,11 @@
     }
 
     &__picture {
-        display: block;
-        overflow: hidden;
-        border-radius: rem($spacing-10);
-        @include media-breakpoint-up(md) {
-            border-radius: rem($spacing-12);
-        }
-        @include media-breakpoint-up(fhd) {
-            border-radius: vw($spacing-16);
-        }
+        display: flex;
 
         //background-color: black;
         width: 100%;
-        height: vw(220, xs);
+        /*height: vw(220, xs);
         @include media-breakpoint-up(md) {
             height: vw(220, md);
         }
@@ -54,14 +54,14 @@
         }
         @include media-breakpoint-up(fhd) {
             height: vw(300);
-        }
+        }*/
 
-        img {
+        /*img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top;
-        }
+            object-position: center;
+        }*/
     }
 
     &__copy {
@@ -79,11 +79,12 @@
             left: 120%;
             
             @extend .text-3;
-            content: 'Copied!';
+            content: 'Скопировано';
             color: rgba($white, .8);
 
             padding: rem($spacing-8) rem($spacing-16);
-            background-color: rgba($text-color, .2);
+            //background-color: rgba($white, .15);
+            background-color: rgba($text-color, .4);
             border-radius: $spacing-100;
 
             opacity: 0;
@@ -160,24 +161,71 @@
         }
     }
 
-    &._slide {
-        height: vw(560); //add height for img
+    &.swiper-slide {
+        height: 100%;
+        #{$root}__bg {
+            border-radius: unset;
+            &:hover {
+                img {
+                    transform: initial;
+                }
+            }
+        }
+        #{$root}__title {
+            @extend .h-1;
+        }
+        #{$root}__title, #{$root}__subtitle, #{$root}__info {
+            color: $white;
+        }
         #{$root}__description {
-            color: $white; // fix color
             position: absolute;
-            left: vw($spacing-40);
-            bottom: vw($spacing-40);
+            bottom: rem($spacing-12);
+            left: rem($spacing-12);
+            right: rem($spacing-120);
+            @include media-breakpoint-up(md) {
+                bottom: rem($spacing-20);
+                left: rem($spacing-20);
+                right: rem($spacing-20);
+            }
+            @include media-breakpoint-up(xl) {
+                bottom: rem($spacing-28);
+                left: rem($spacing-28);
+                right: rem($spacing-28);
+            }
+            @include media-breakpoint-up(fhd) {
+                bottom: vw($spacing-40);
+                left: vw($spacing-40);
+                right: rem($spacing-40);
+            }
+        }
+        #{$root}__subtitle, #{$root}__info {
+            @extend .h-4;
         }
         #{$root}__copy {
+            background-color: rgba($white, .15);
+            top: rem($spacing-12);
+            left: rem($spacing-12);
             width: rem(36);
             height: rem(36);
+            @include media-breakpoint-up(md) {
+                top: rem($spacing-20);
+                left: rem($spacing-20);
+            }
             @include media-breakpoint-up(xl) {
                 width: rem(40);
                 height: rem(40);
+                top: rem($spacing-28);
+                left: rem($spacing-28);
             }
             @include media-breakpoint-up(fhd) {
                 width: vw(60);
                 height: vw(60);
+                top: vw($spacing-40);
+                left: vw($spacing-40);
+            }
+
+            &:hover {
+                background-color: rgba($white, .3);
             }
 
             svg {

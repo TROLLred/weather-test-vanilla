@@ -1,0 +1,10 @@
+mixin slider-navigation(props)
+    .slider-navigation&attributes(attributes)(data-component='slider-navigation')
+        +button-rounded(props.prevBtn)(
+            aria-label=props.prevBtn.prevLabel
+            aria-controls=props.sliderWrapperId
+        ).slider-navigation__prev
+        +button-rounded(props.nextBtn)(
+            aria-label=props.nextBtn.nextLabel
+            aria-controls=props.sliderWrapperId
+        ).slider-navigation__next

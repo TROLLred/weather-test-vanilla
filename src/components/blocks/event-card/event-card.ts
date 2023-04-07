@@ -5,7 +5,7 @@ type EventCardOptions = ComponentOptions;
 export default class EventCard extends Component {
     static readonly copyMessage = 'Copied!';
     static readonly errMessage = 'Oops :(';
-    static readonly reactionTime = 2000;
+    static readonly reactionTime = 1500;
     static readonly tooltipShowClass = '_tooltip-show';
 
     title?: HTMLElement;

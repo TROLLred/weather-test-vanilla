@@ -1,0 +1,52 @@
+.lead-section {
+    $root: &;
+    padding: var(--offset-side-top) var(--offset-side-right) var(--offset-section-vertical) var(--offset-side-left);
+
+    &__title {
+        @extend .h-2;
+        margin-bottom: rem($spacing-20);
+        @include media-breakpoint-up(md) {
+            margin-bottom: rem($spacing-12);
+        }
+        @include media-breakpoint-up(xl) {
+            margin-bottom: rem($spacing-20);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-bottom: vw(28);
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        @include media-breakpoint-up(md) {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__slider {
+        width: 100%;
+    }
+
+    &__widgets {
+        flex: 1 0 auto;
+        background-color: $blue;
+        @include media-breakpoint-down(md) {
+            margin-top: rem($spacing-20);
+            height: 233px; // mock
+        }
+        @include media-breakpoint-up(md) {
+            margin-left: vw($spacing-20, md);
+            width: vw(159, md);
+        }
+        @include media-breakpoint-up(xl) {
+            margin-left: vw($spacing-28, xl);
+            width: vw(249, xl);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-left: vw($spacing-40);
+            width: vw(370);
+        }
+    }
+}

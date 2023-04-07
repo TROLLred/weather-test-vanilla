@@ -1,0 +1,45 @@
+.slider-navigation {
+    $root: &;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    &__next {
+        margin-left: rem($spacing-8);
+        @include media-breakpoint-up(xl) {
+            margin-left: rem($spacing-7);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-left: vw($spacing-10);
+        }
+    }
+
+    .button-rounded {
+        background-color: rgba($white, .15);
+        width: rem(36);
+        height: rem(36);
+        @include media-breakpoint-up(xl) {
+            width: rem(40);
+            height: rem(40);
+        }
+        @include media-breakpoint-up(fhd) {
+            width: vw(60);
+            height: vw(60);
+        }
+
+        &:hover {
+            background-color: rgba($white, .3);
+        }
+    }
+
+    .swiper-button-disabled {
+        pointer-events: none;
+        background-color: rgba($white, .10);
+        svg {
+            opacity: .5;
+        }
+        &:hover, &:active {
+            background-color: rgba($white, .10);
+        }
+    }
+}

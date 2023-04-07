@@ -1,57 +1,52 @@
 {
     "title": "Hallo",
-    "leadSlider": {
+    "leadSection": {
         "title": "Ближайшие мероприятия",
         "slider": {
+            "sliderWrapperId": "events-slider-1",
             "slides": [
                 {
                     "picture": {
-                        "sources": [
-                            {
-                                "src": "/images/EventsGrid/woman.jpg",
-                                "breakpoint": "1920"
-                            },
-                            {
-                                "src": "/images/EventsGrid/woman.jpg",
-                                "breakpoint": "1280"
-                            },
-                            {
-                                "src": "/images/EventsGrid/woman.jpg",
-                                "breakpoint": "768"
-                            }
-                        ],
-                        "src": "/images/EventsGrid/woman.jpg"
+                        "img": {
+                            "src": "../../assets/images/eventsSlider/standup.jpg"
+                        }
+                    },
+                    "copyButton": {
+                        "icon": "chain"
                     },
                     "title": "Евгений Чебатков",
-                    "subtitle": "Новая программа в сольном стендап-концерте Евгения Чебаткова",
+                    "subtitle": "Новая программа в сольном <nobr>стендап-концерте</nobr> Евгения Чебаткова",
                     "info": ["25 апреля, 19:00", "Зимний театр"]
                 },
                 {
                     "picture": {
                         "sources": [
                             {
-                                "src": "/images/EventsGrid/woman.jpg",
-                                "breakpoint": "1920"
-                            },
-                            {
-                                "src": "/images/EventsGrid/woman.jpg",
-                                "breakpoint": "1280"
-                            },
-                            {
-                                "src": "/images/EventsGrid/woman.jpg",
-                                "breakpoint": "768"
+                                "srcset": "../../assets/images/eventsSlider/showman.jpg",
+                                "breakpoint": 768
                             }
                         ],
-                        "src": "/images/EventsGrid/woman.jpg"
+                        "img": {
+                            "src": "../../assets/images/eventsSlider/showman.jpg"
+                        }
                     },
-                    "title": "Евгений Чебатков",
-                    "subtitle": "Новая программа в сольном стендап-концерте Евгения Чебаткова",
-                    "info": ["25 апреля, 19:00", "Зимний театр"]
+                    "copyButton": {
+                        "icon": "chain"
+                    },
+                    "title": "Артур Пирожков",
+                    "subtitle": "Золотая классика музыки от великолепного Александра&nbsp;Реввы",
+                    "info": ["26 апреля, 19:00", "Зимний театр"]
                 }
             ],
             "navigation": {
-                "prevBtn": "arrow-left",
-                "nextBtn": "arrow"
+                "prevBtn": {
+                    "label": "Предыдущий слайд",
+                    "icon": "arrow-left"
+                },
+                "nextBtn": {
+                    "label": "Предыдущий слайд",
+                    "icon": "arrow"
+                }
             }
         },
         "widgets": {

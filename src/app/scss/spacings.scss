@@ -3,16 +3,17 @@
 //$spacing-180: 180px;
 $spacing-160: 160px;
 //$spacing-130: 130px;
-//$spacing-120: 120px;
+$spacing-120: 120px;
 //$spacing-110: 110px;
 $spacing-100: 100px;
-//$spacing-80: 80px;
+$spacing-80: 80px;
 $spacing-60: 60px;
 $spacing-50: 50px;
 $spacing-40: 40px;
 $spacing-36: 36px;
 $spacing-35: 35px;
 $spacing-30: 30px;
+$spacing-28: 28px;
 $spacing-25: 25px;
 $spacing-20: 20px;
 $spacing-16: 16px;
@@ -20,24 +21,35 @@ $spacing-15: 15px;
 $spacing-12: 12px;
 $spacing-10: 10px;
 $spacing-8: 8px;
+$spacing-7: 7px;
 $spacing-5: 5px;
 
 :root {
+    --offset-side-top: #{$spacing-60};
+    --offset-side-bottom: #{$spacing-60};
     --offset-side-left: #{$spacing-20};
     --offset-side-right: #{$spacing-20};
+    --offset-section-vertical: #{$spacing-28};
 
     @include media-breakpoint-up(md) {
         --offset-side-left: #{$spacing-36};
         --offset-side-right: #{$spacing-36};
+        --offset-section-vertical: #{$spacing-60};
     }
 
     @include media-breakpoint-up(xl) {
+        --offset-side-top: #{$spacing-100};
+        --offset-side-bottom: #{$spacing-100};
         --offset-side-left: #{$spacing-100};
         --offset-side-right: #{$spacing-100};
+        --offset-section-vertical: #{$spacing-80};
     }
 
     @include media-breakpoint-up(fhd) {
+        --offset-side-top: #{$spacing-160};
+        --offset-side-bottom: #{$spacing-160};
         --offset-side-left: #{$spacing-160};
         --offset-side-right: #{$spacing-160};
+        --offset-section-vertical: #{$spacing-120};
     }
 }

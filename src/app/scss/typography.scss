@@ -18,6 +18,12 @@
     line-height: 1.4;
     @include font(26, 17, 17, 14, 14);
 }
+@mixin h4 {
+    font-family: $font-graphik-lcg;
+    font-weight: 400;
+    line-height: 1;
+    @include font(18, 14, 14, 12, 11);
+}
 // голубые заголовки 
 @mixin text1 {
     font-family: $font-graphik-lcg;
@@ -81,6 +87,10 @@
 
 .h-3 {
     @include h3;
+}
+
+.h-4 {
+    @include h4;
 }
 
 .text-1 {

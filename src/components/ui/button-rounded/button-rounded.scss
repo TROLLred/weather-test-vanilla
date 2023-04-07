@@ -10,7 +10,6 @@
         background-color: rgba($text-color, .5);
     }
 
-    // дефолт размеры - перезатирать на слайдере и навигации
     width: rem(30);
     height: rem(30);
     @include media-breakpoint-up(xl) {

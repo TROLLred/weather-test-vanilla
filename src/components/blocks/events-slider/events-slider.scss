@@ -1,0 +1,58 @@
+.events-slider {
+    $root: &;
+    
+    //position: relative;
+    height: rem(360);
+    @include media-breakpoint-up(xl) {
+        height: rem(380);
+    }
+    @include media-breakpoint-up(fhd) {
+        height: vw(560);
+    }
+    overflow: hidden;
+    border-radius: rem($spacing-10);
+    @include media-breakpoint-up(md) {
+        border-radius: rem($spacing-12);
+    }
+    @include media-breakpoint-up(fhd) {
+        border-radius: vw($spacing-16);
+    }
+
+    &__slider {
+        
+    }
+
+    &__card {
+        &, & img {
+            height: rem(360);
+            @include media-breakpoint-up(xl) {
+                height: rem(380);
+            }
+            @include media-breakpoint-up(fhd) {
+                height: vw(560);
+            }
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        position: absolute;
+        z-index: 1;
+        top: rem($spacing-12);
+        right: rem($spacing-12);
+        @include media-breakpoint-up(md) {
+            top: rem($spacing-20);
+            right: rem($spacing-28);
+        }
+        @include media-breakpoint-up(xl) {
+            top: rem($spacing-28);
+            right: rem($spacing-28);
+        }
+        @include media-breakpoint-up(fhd) {
+            top: vw($spacing-40);
+            right: vw($spacing-40);
+        }
+    }
+}

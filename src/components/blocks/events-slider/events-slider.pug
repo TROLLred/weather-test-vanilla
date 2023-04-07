@@ -1,0 +1,12 @@
+mixin events-slider(props)
+    .events-slider&attributes(attributes)(data-component='events-slider').swiper
+        .events-slider__slider.swiper-wrapper(id=props.sliderWrapperId)
+            if props.slides
+                each slide in props.slides 
+                    +event-card(slide).events-slider__card.swiper-slide
+                    //.events-slider__card-slide.swiper-slide
+                        +event-card(slide).events-slider__card.swiper-slide
+        - props.navigation.sliderWrapperId = props.sliderWrapperId
+        if props.navigation
+            .events-slider__nav
+                +slider-navigation(props.navigation).events-slider__navigation
