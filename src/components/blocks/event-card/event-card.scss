@@ -111,7 +111,8 @@
     &__info {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow: hidden;
         @extend .text-2;
         // maybe через опасити
         color: rgba($text-color, 0.6);
@@ -123,6 +124,10 @@
 
     &__info-element {
         counter-increment: step-counter;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
         &:not(:first-child) {
             margin-left: rem($spacing-12);
             @include media-breakpoint-up(fhd) {
@@ -135,6 +140,13 @@
                     margin-right: vw($spacing-20);
                 }
             }
+        }
+        &:not(:last-child) {
+            white-space: nowrap;
+        }
+        &:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 
