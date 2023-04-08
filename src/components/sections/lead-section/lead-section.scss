@@ -4,6 +4,7 @@
 
     &__title {
         @extend .h-2;
+        color: var(--text-color);
         margin-bottom: rem($spacing-20);
         @include media-breakpoint-up(md) {
             margin-bottom: rem($spacing-12);
@@ -30,11 +31,11 @@
     }
 
     &__widgets {
+        display: flex;
+        flex-direction: column;
         flex: 1 0 auto;
-        background-color: $blue;
         @include media-breakpoint-down(md) {
             margin-top: rem($spacing-20);
-            height: 233px; // mock
         }
         @include media-breakpoint-up(md) {
             margin-left: vw($spacing-20, md);
@@ -47,6 +48,29 @@
         @include media-breakpoint-up(fhd) {
             margin-left: vw($spacing-40);
             width: vw(370);
+        }
+    }
+
+    &__weather {
+        height: 100%;
+        padding: rem($spacing-12);
+        margin-bottom: rem($spacing-12);
+        @include media-breakpoint-up(fhd) {
+            margin-bottom: vw($spacing-20);
+            padding: vw($spacing-20);
+        }
+
+        overflow: hidden;
+        background-color: var(--foreground);
+        border-radius: rem($spacing-10);
+        @include media-breakpoint-up(md) {
+            flex-direction: column;
+            padding: rem($spacing-12);
+            border-radius: rem($spacing-12);
+        }
+        @include media-breakpoint-up(fhd) {
+            padding: vw($spacing-20);
+            border-radius: vw($spacing-16);
         }
     }
 }

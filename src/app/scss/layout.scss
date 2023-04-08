@@ -2,9 +2,21 @@
     --black: #000;
     --white: #FFF;
     --blue: #157BFB;
+    --purple: #BB86FC;
     --main-color: #157BFB;
     --accent-color: #157BFB;
+
+    --primary-color: #157BFB;
+    --background: #FFF;
+    --foreground: #FFF;
     --text-color: #232323;
+}
+
+.dark:root {
+    --primary-color: #157BFB;//#BB86FC
+    --background: #212121;
+    --foreground: #323232;
+    --text-color: #FFF;
 }
 
 html {
@@ -21,6 +33,9 @@ html {
 
 * {
     box-sizing: border-box;
+    transition: 
+        background-color $base-transition-time ease-in-out,
+        color $base-transition-time ease-in-out;
 }
 
 body {
@@ -33,6 +48,7 @@ body {
     &::-webkit-scrollbar {
         display: none;
     }
+    background: var(--background);
 }
 
 h1, h2, h3, h4, h5, p, a {

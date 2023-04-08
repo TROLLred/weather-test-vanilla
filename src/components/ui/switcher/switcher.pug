@@ -1,0 +1,9 @@
+mixin switcher(props)
+    -
+        let idCheckbox = props.id ? props.id : 'switcher';
+    .switcher&attributes(attributes)(data-component='switcher')
+        if props.label
+            span.switcher__label!=props.label
+        .switcher__box
+            input(id=idCheckbox type="checkbox").switcher__checkbox
+            label(for=idCheckbox).switcher__button

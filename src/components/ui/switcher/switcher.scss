@@ -1,0 +1,110 @@
+.switcher {
+    $root: &;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap; // maybe nowrap?
+
+    &__label {
+        @extend .label;
+        color: var(--text-color);
+        margin-right: rem($spacing-12);
+        @include media-breakpoint-up(fhd) {
+            margin-right: vw($spacing-20);
+        }
+    }
+
+    &__checkbox {
+        display: none;
+        &, &:after, &:before,
+        & *, & *:after, & *:before,
+        & + #{$root}__button {
+            box-sizing: border-box;
+            &::selection {
+                background: none;
+            }
+        }
+      
+        + #{$root}__button {
+            outline: 0;
+            display: block;
+            width: rem(26);
+            height: rem(14);
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            @include media-breakpoint-up(xl) {
+                width: rem(34);
+                height: rem(18);
+            }
+            @include media-breakpoint-up(fhd) {
+                width: vw(54);
+                height: vw(28);
+            }
+            &:after, &:before {
+                position: relative;
+                display: block;
+                content: "";
+                width: rem(10);
+                height: rem(10);
+                @include media-breakpoint-up(xl) {
+                    width: rem(14);
+                    height: rem(14);
+                }
+                @include media-breakpoint-up(fhd) {
+                    width: vw(22);
+                    height: vw(22);
+                }
+            }
+            &:after {
+                left: 0;
+            }
+            &:before {
+                display: none;
+            }
+        }
+      
+        &:checked + #{$root}__button:after {
+            left: calc(100% - #{rem($spacing-10)});
+            @include media-breakpoint-up(xl) {
+                left: calc(100% - #{rem($spacing-14)});
+            }
+            @include media-breakpoint-up(fhd) {
+                left: calc(100% - #{vw($spacing-22)});
+            }
+        }
+
+        + #{$root}__button {
+            border-radius: rem($spacing-100);
+            padding: rem($spacing-1);
+            transition: all $base-transition-time ease;
+            background-color: var(--background);
+            border: 1px solid rgba($text-color, .2);
+            @include media-breakpoint-up(fhd) {
+                border: 2px solid rgba($text-color, .2);
+            }
+            &:after {
+                border-radius: rem($spacing-100);
+                background: var(--primary-color);
+                transition:
+                    left $base-transition-time cubic-bezier(
+                        0.175, 0.885, 0.320, 1.275
+                    ),
+                    padding $base-transition-time ease, 
+                    margin $base-transition-time ease;
+            }
+            &:hover:after {
+                will-change: padding;
+            }
+            &:active:after {
+                padding-right: rem($spacing-5);
+            }
+        }
+      
+        &:checked + #{$root}__button {
+            &:active:after {
+                margin-left: rem(-$spacing-5);
+            }
+        }
+    }
+}

@@ -4,13 +4,32 @@ import EventCard from '@/components/blocks/event-card/event-card';
 import ButtonRounded from '@/components/ui/button-rounded/button-rounded';
 import EventsSlider from '@/components/blocks/events-slider/events-slider';
 import SliderNavigation from '@/components/ui/slider-navigation/slider-navigation';
+import ThemeSwitcher from '@/components/common/theme-switcher/theme-switcher';
+import Switcher from '@/components/ui/switcher/switcher';
 
 // Набор всех компонентов, для которых будет применяться стандартная инициализация
 const allComponents: Record<string, any & Component> = {
+    switcher: Switcher,
+    'theme-switcher': ThemeSwitcher,
     'button-rounded': ButtonRounded,
     'slider-navigation': SliderNavigation,
     'events-slider': EventsSlider,
     'event-card': EventCard,
+};
+
+export const themes = {
+    [ThemeSwitcher.themeValues.light]: {
+        '--primary-color': '#157BFB',
+        '--background' : '#FFF',
+        '--foreground': '#FFF',
+        '--text-color' : '#232323',
+    },
+    [ThemeSwitcher.themeValues.dark]: {
+        '--primary-color': '#157BFB', //'#BB86FC',
+        '--background' : '#212121',
+        '--foreground': '#323232',
+        '--text-color' : '#FFF',
+    }
 };
 
 export default {
@@ -34,8 +53,7 @@ export default {
             });
 
             // Дополнительная логика для инициализации страницы
-            // ...
-
+            // Инициализация темы
         } catch (e) {
             console.error(e);
         }

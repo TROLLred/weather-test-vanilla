@@ -8,4 +8,9 @@ mixin lead-section(props)
                 +events-slider(props.slider).lead-section__slider
             if props.widgets
                 .lead-section__widgets
+                    if props.widgets.mockWeather
+                        .lead-section__weather
+                            
+                    if props.widgets.themeSwitcher
+                        +theme-switcher(props.widgets.themeSwitcher)
 

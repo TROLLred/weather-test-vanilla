@@ -79,9 +79,12 @@
                     }
                 ]
             },
-            "theme": {
+            "themeSwitcher": {
                 "title": "Переключение темы",
-                "label": "Светлая"
+                "switcher": {
+                    "label": "Светлая",
+                    "id": "theme-switcher-widget"
+                }
             }
         }
     },

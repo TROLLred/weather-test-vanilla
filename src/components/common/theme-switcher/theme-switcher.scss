@@ -1,0 +1,37 @@
+.theme-switcher {
+    $root: &;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 0 auto;
+    overflow: hidden;
+    padding: rem($spacing-13) rem($spacing-12);
+    background-color: var(--foreground);
+    border-radius: rem($spacing-10);
+    @include media-breakpoint-up(md) {
+        flex-direction: column;
+        padding: rem($spacing-12);
+        border-radius: rem($spacing-12);
+    }
+    @include media-breakpoint-up(fhd) {
+        padding: vw($spacing-20);
+        border-radius: vw($spacing-16);
+    }
+
+    &__title {
+        @extend .text-1;
+        color: var(--primary-color);
+        @include media-breakpoint-down(md) {
+            margin-right: rem($spacing-12);
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: rem($spacing-7);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-bottom: vw($spacing-10);
+        }
+    }
+
+    &__switcher {}
+}

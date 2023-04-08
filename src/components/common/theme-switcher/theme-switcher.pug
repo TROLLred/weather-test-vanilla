@@ -1,0 +1,7 @@
+mixin theme-switcher(props)
+    .theme-switcher&attributes(attributes)(data-component='theme-switcher')
+        if props.title
+            p.theme-switcher__title!=props.title
+        if props.switcher
+            +switcher(props.switcher).theme-switcher__switcher
+

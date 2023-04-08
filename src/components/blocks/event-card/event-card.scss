@@ -101,7 +101,6 @@
     }
 
     &__title {
-        color: var(--text-color);
         @extend .h-3;
     }
 
@@ -115,8 +114,10 @@
         flex-wrap: nowrap;
         overflow: hidden;
         @extend .text-2;
-        // maybe через опасити
-        color: rgba($text-color, 0.6);
+        // может через опасити
+        //color: rgba($text-color, 0.6);
+        opacity: .6;
+        transition: opacity $base-transition-time;
 
         // change list style
         counter-reset: li;
@@ -151,6 +152,10 @@
         }
     }
 
+    &__description {
+        color: var(--text-color);
+    }
+
     &__description, &__subtitle, &__info {
         margin-top: rem($spacing-8);
         @include media-breakpoint-up(xl) {
@@ -175,9 +180,10 @@
             @extend .h-1;
         }
         #{$root}__title, #{$root}__subtitle, #{$root}__info {
-            color: $white;
+            //color: $white;
         }
         #{$root}__description {
+            color: $white;
             position: absolute;
             bottom: rem($spacing-12);
             left: rem($spacing-12);
@@ -200,6 +206,9 @@
         }
         #{$root}__subtitle, #{$root}__info {
             @extend .h-4;
+        }
+        #{$root}__info {
+            opacity: 1;
         }
         #{$root}__copy {
             background-color: rgba($white, .15);
