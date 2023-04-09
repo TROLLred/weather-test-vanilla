@@ -1,0 +1,31 @@
+mixin weather-widget(props)
+    .weather-widget&attributes(attributes)(data-component='weather-widget')
+        .weather-widget__top
+            .weather-widget__head
+                .weather-widget__location
+                    +svg('location').weather-widget__location-icon
+                    label.weather-widget__location-city!="Погода в Сочи"
+                .weather-widget__date!="Пятница, 31 марта"
+            .weather-widget__main
+                .weather-widget__info
+                    .weather-widget__info-icon
+                    span.weather-widget__info-degree!="+10°"
+                .weather-widget__weather
+                    .weather-widget__weather-type!="Дождь"
+                    .weather-widget__feels-like!="Ощущается как +6°"
+        ul.weather-widget__forecast
+            li.weather-widget__forecast-item
+                span!="Вечером"
+                .weather-widget__forecast-info
+                    //+svg('cloud').weather-widget__forecast-icon
+                    .weather-widget__forecast-degree!="+5°"
+            li.weather-widget__forecast-item
+                span!="Ночью"
+                .weather-widget__forecast-info
+                    //+svg('cloud').weather-widget__forecast-icon
+                    .weather-widget__forecast-degree!="+3°"
+            li.weather-widget__forecast-item
+                span!="Утром"
+                .weather-widget__forecast-info
+                    //+svg('cloud').weather-widget__forecast-icon
+                    .weather-widget__forecast-degree!="+4°"

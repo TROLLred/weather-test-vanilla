@@ -1,0 +1,152 @@
+.weather-widget {
+    $root: &;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-color);
+
+    &__top {
+        @include media-breakpoint-up(md) {
+            //margin-bottom: auto;
+        }
+    }
+
+    &__location {
+        @extend .text-1;
+        color: var(--primary-color);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    &__location-icon {
+        width: rem($spacing-14);
+        height: rem($spacing-14);
+        margin-right: rem($spacing-8);
+        fill: var(--primary-color);
+        transition: fill $base-transition-time ease-in-out;
+        @include media-breakpoint-up(md) {
+            margin-right: rem($spacing-7);
+        }
+        @include media-breakpoint-up(fhd) {
+            width: vw($spacing-20);
+            height: vw($spacing-20);
+            margin-right: vw($spacing-10);
+        }
+    }
+    &__date {
+        @extend .text-3;
+        margin-top: rem($spacing-8);
+        @include media-breakpoint-up(md) {
+            margin-top: rem($spacing-12);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-20);
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        margin-top: rem($spacing-28);
+        @include media-breakpoint-down(md) {
+            margin-right: rem($spacing-20);
+        }
+        @include media-breakpoint-up(md) {
+            margin-top: rem($spacing-40);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-60);
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    &__info-degree {
+        @extend .big-number;
+    }
+    &__weather {
+        @extend .text-3;
+        @include media-breakpoint-up(md) {
+            margin-top: rem($spacing-12);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-20);
+        }
+    }
+
+    &__weather-type {
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &__feels-like {
+        margin-top: rem($spacing-8);
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-10);
+        }
+    }
+
+    &__forecast {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: rem($spacing-20);
+        @include media-breakpoint-up(md) {
+            margin-top: rem($spacing-30);
+        }
+        @include media-breakpoint-up(xl) {
+            margin-top: rem($spacing-60);
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-70)
+        }
+    }
+
+    &__forecast-item {
+        span {
+            @extend .text-4;
+            opacity: .5;
+        }
+        &:not(:last-child) {
+            margin-right: rem($spacing-40);
+            @include media-breakpoint-up(md) {
+                margin-right: rem($spacing-12);
+            }
+            @include media-breakpoint-up(xl) {
+                margin-right: rem($spacing-20);
+            }
+            @include media-breakpoint-up(fhd) {
+                margin-right: vw($spacing-40);
+            }
+        }
+    }
+
+    &__forecast-info {
+        margin-top: rem($spacing-8);
+        @include media-breakpoint-up(fhd) {
+            margin-top: vw($spacing-12);
+        }
+    }
+
+    &__forecast-icon {
+        fill: var(--primary-color);
+        margin-right: rem($spacing-4);
+        @include media-breakpoint-up(xl) {
+            margin-right: rem($spacing-8)
+        }
+        @include media-breakpoint-up(fhd) {
+            margin-right: vw($spacing-10)
+        }
+    }
+
+    &__forecast-degree {
+        @extend .small-number;
+    }
+}

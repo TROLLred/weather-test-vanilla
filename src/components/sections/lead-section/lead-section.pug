@@ -9,8 +9,8 @@ mixin lead-section(props)
             if props.widgets
                 .lead-section__widgets
                     if props.widgets.mockWeather
-                        .lead-section__weather
-                            
+                        +weather-widget(props.widgets.mockWeather).lead-section__weather
+
                     if props.widgets.themeSwitcher
                         +theme-switcher(props.widgets.themeSwitcher)
 

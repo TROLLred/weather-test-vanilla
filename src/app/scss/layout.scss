@@ -13,9 +13,9 @@
 }
 
 .dark:root {
-    --primary-color: #157BFB;//#BB86FC
-    --background: #212121;
-    --foreground: #323232;
+    --primary-color: #BB86FC;//#BB86FC
+    --background: #1E1E1E;
+    --foreground: #272727;
     --text-color: #FFF;
 }
 
@@ -35,7 +35,7 @@ html {
     box-sizing: border-box;
     transition: 
         background-color $base-transition-time ease-in-out,
-        color $base-transition-time ease-in-out;
+        //color $base-transition-time ease-in-out;
 }
 
 body {
@@ -99,6 +99,11 @@ button {
     &:focus {
         outline: none;
     }
+}
+
+svg {
+    transition: fill $base-transition-time ease-in-out,
+        stroke $base-transition-time ease-in-out;
 }
 
 [data-barba="container"] {

@@ -6,6 +6,7 @@ import EventsSlider from '@/components/blocks/events-slider/events-slider';
 import SliderNavigation from '@/components/ui/slider-navigation/slider-navigation';
 import ThemeSwitcher from '@/components/common/theme-switcher/theme-switcher';
 import Switcher from '@/components/ui/switcher/switcher';
+import WeatherWidget from '@/components/blocks/weather-widget/weather-widget';
 
 // Набор всех компонентов, для которых будет применяться стандартная инициализация
 const allComponents: Record<string, any & Component> = {
@@ -15,9 +16,10 @@ const allComponents: Record<string, any & Component> = {
     'slider-navigation': SliderNavigation,
     'events-slider': EventsSlider,
     'event-card': EventCard,
+    'weather-widget': WeatherWidget,
 };
 
-export const themes = {
+/*export const themes = {
     [ThemeSwitcher.themeValues.light]: {
         '--primary-color': '#157BFB',
         '--background' : '#FFF',
@@ -30,7 +32,7 @@ export const themes = {
         '--foreground': '#323232',
         '--text-color' : '#FFF',
     }
-};
+};*/
 
 export default {
     namespace: 'common',

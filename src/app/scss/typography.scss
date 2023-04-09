@@ -71,7 +71,7 @@
 // маленькая цифра в прогнозе
 @mixin smallNumber {
     font-family: $font-graphik-lcg;
-    font-weight: normal;
+    font-weight: 600;
     line-height: 1;
     @include font(20, 14, 14, 12, 12);
 }
