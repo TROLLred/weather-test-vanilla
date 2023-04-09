@@ -1,25 +1,18 @@
 .events-slider {
     $root: &;
     
-    //position: relative;
+    overflow: hidden;
     height: rem(360);
+    border-radius: rem($spacing-10);
+    @include media-breakpoint-up(md) {
+        border-radius: rem($spacing-12);
+    }
     @include media-breakpoint-up(xl) {
         height: rem(380);
     }
     @include media-breakpoint-up(fhd) {
         height: vw(560);
-    }
-    overflow: hidden;
-    border-radius: rem($spacing-10);
-    @include media-breakpoint-up(md) {
-        border-radius: rem($spacing-12);
-    }
-    @include media-breakpoint-up(fhd) {
         border-radius: vw($spacing-16);
-    }
-
-    &__slider {
-        
     }
 
     &__card {
@@ -53,6 +46,10 @@
         @include media-breakpoint-up(fhd) {
             top: vw($spacing-40);
             right: vw($spacing-40);
+        }
+
+        &_hidden {
+            display: none;
         }
     }
 }

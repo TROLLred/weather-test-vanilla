@@ -4,9 +4,7 @@ mixin events-slider(props)
             if props.slides
                 each slide in props.slides 
                     +event-card(slide).events-slider__card.swiper-slide
-                    //.events-slider__card-slide.swiper-slide
-                        +event-card(slide).events-slider__card.swiper-slide
         - props.navigation.sliderWrapperId = props.sliderWrapperId
         if props.navigation
-            .events-slider__nav
+            .events-slider__nav(class= props.slides.length > 1 ? '' : 'events-slider__nav_hidden')
                 +slider-navigation(props.navigation).events-slider__navigation

@@ -2,10 +2,7 @@
     $root: &;
 
     position: relative;
-    // подфиксить стили на случай наличия picture или его отсутствия, а также
-    // разобраться куда лучше навесить overflow hidden и border-radus
     &__bg {
-        //height: 100%;
         position: relative;
         overflow: hidden;
         border-radius: rem($spacing-10);
@@ -42,26 +39,6 @@
 
     &__picture {
         display: flex;
-
-        //background-color: black;
-        width: 100%;
-        /*height: vw(220, xs);
-        @include media-breakpoint-up(md) {
-            height: vw(220, md);
-        }
-        @include media-breakpoint-up(xl) {
-            height: vw(200, xl);
-        }
-        @include media-breakpoint-up(fhd) {
-            height: vw(300);
-        }*/
-
-        /*img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }*/
     }
 
     &__copy {
@@ -83,7 +60,6 @@
             color: rgba($white, .8);
 
             padding: rem($spacing-8) rem($spacing-16);
-            //background-color: rgba($white, .15);
             background-color: rgba($text-color, .4);
             border-radius: $spacing-100;
 
@@ -102,10 +78,12 @@
 
     &__title {
         @extend .h-3;
+        transition: color $base-transition-time;
     }
 
     &__subtitle {
         @extend .text-2;
+        transition: color $base-transition-time;
     }
 
     &__info {
@@ -114,12 +92,8 @@
         flex-wrap: nowrap;
         overflow: hidden;
         @extend .text-2;
-        // может через опасити
-        //color: rgba($text-color, 0.6);
         opacity: .6;
-        transition: opacity $base-transition-time;
-
-        // change list style
+        transition: opacity $base-transition-time, color $base-transition-time;
         counter-reset: li;
         list-style-type: disc;
     }
@@ -175,12 +149,19 @@
                     transform: initial;
                 }
             }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: $shadow-gradient;
+                opacity: .8;
+            }
         }
         #{$root}__title {
             @extend .h-1;
-        }
-        #{$root}__title, #{$root}__subtitle, #{$root}__info {
-            //color: $white;
         }
         #{$root}__description {
             color: $white;

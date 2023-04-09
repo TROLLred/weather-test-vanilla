@@ -7,9 +7,7 @@
     color: var(--text-color);
 
     &__top {
-        @include media-breakpoint-up(md) {
-            //margin-bottom: auto;
-        }
+        transition: color $base-transition-time;
     }
 
     &__location {
@@ -98,6 +96,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         margin-top: rem($spacing-20);
+        transition: color $base-transition-time;
         @include media-breakpoint-up(md) {
             margin-top: rem($spacing-30);
         }
