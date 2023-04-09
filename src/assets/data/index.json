@@ -53,29 +53,29 @@
             "mockWeather": {
                 "location": "Погода в Сочи",
                 "date": "Пятница, 31 марта",
-                "wetaher": {
-                    "icon": "rain",
-                    "angle": "+10°",
+                "weather": {
+                    "icon": "9d",
+                    "degree": "+10°",
                     "feels": [
                         "Дождь",
                         "Ощущается как +6°"
                     ]
                 },
-                "prognose": [
+                "forecast": [
                     {
                         "times": "Вечером",
-                        "icon": "cloud",
-                        "angle": "+5°"
+                        "icon": "03d",
+                        "degree": "+5°"
                     },
                     {
                         "times": "Ночью",
-                        "icon": "cloud",
-                        "angle": "+3°"
+                        "icon": "03d",
+                        "degree": "+3°"
                     },
                     {
                         "times": "Утром",
-                        "icon": "cloud",
-                        "angle": "+4°"
+                        "icon": "03d",
+                        "degree": "+4°"
                     }
                 ]
             },

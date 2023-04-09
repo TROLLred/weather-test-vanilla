@@ -219,7 +219,6 @@
             }
 
             svg {
-                // TODO - fill или stroke вставить
                 width: rem(17);
                 height: rem(17);
                 @include media-breakpoint-up(xl) {

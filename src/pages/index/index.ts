@@ -19,21 +19,6 @@ const allComponents: Record<string, any & Component> = {
     'weather-widget': WeatherWidget,
 };
 
-/*export const themes = {
-    [ThemeSwitcher.themeValues.light]: {
-        '--primary-color': '#157BFB',
-        '--background' : '#FFF',
-        '--foreground': '#FFF',
-        '--text-color' : '#232323',
-    },
-    [ThemeSwitcher.themeValues.dark]: {
-        '--primary-color': '#157BFB', //'#BB86FC',
-        '--background' : '#212121',
-        '--foreground': '#323232',
-        '--text-color' : '#FFF',
-    }
-};*/
-
 export default {
     namespace: 'common',
     components: <Component[]>[],
@@ -55,7 +40,7 @@ export default {
             });
 
             // Дополнительная логика для инициализации страницы
-            // Инициализация темы
+            // ...
         } catch (e) {
             console.error(e);
         }

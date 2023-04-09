@@ -2,7 +2,7 @@ mixin event-card(props)
     .event-card&attributes(attributes)(data-component='event-card')
         .event-card__bg
             if props.picture
-                +picture(props.picture).event-card__picture
+                +picture(props.picture).skeleton-image.event-card__picture
             if props.copyButton
                 +button-rounded(props.copyButton).event-card__copy
 

@@ -4,28 +4,19 @@ mixin weather-widget(props)
             .weather-widget__head
                 .weather-widget__location
                     +svg('location').weather-widget__location-icon
-                    label.weather-widget__location-city!="Погода в Сочи"
-                .weather-widget__date!="Пятница, 31 марта"
+                    label.weather-widget__location-city!=props.location
+                .weather-widget__date!= props.date
             .weather-widget__main
                 .weather-widget__info
-                    .weather-widget__info-icon
-                    span.weather-widget__info-degree!="+10°"
-                .weather-widget__weather
-                    .weather-widget__weather-type!="Дождь"
-                    .weather-widget__feels-like!="Ощущается как +6°"
+                    +svg(props.weather.icon).weather-widget__info-icon.skeleton
+                    span.weather-widget__info-degree.skeleton!=props.weather.degree
+                .skeleton.weather-widget__weather
+                    .weather-widget__weather-type!=props.weather.feels[0]
+                    .weather-widget__feels-like!=props.weather.feels[1]
         ul.weather-widget__forecast
-            li.weather-widget__forecast-item
-                span!="Вечером"
-                .weather-widget__forecast-info
-                    //+svg('cloud').weather-widget__forecast-icon
-                    .weather-widget__forecast-degree!="+5°"
-            li.weather-widget__forecast-item
-                span!="Ночью"
-                .weather-widget__forecast-info
-                    //+svg('cloud').weather-widget__forecast-icon
-                    .weather-widget__forecast-degree!="+3°"
-            li.weather-widget__forecast-item
-                span!="Утром"
-                .weather-widget__forecast-info
-                    //+svg('cloud').weather-widget__forecast-icon
-                    .weather-widget__forecast-degree!="+4°"
+            each forecast in props.forecast
+                li.weather-widget__forecast-item
+                    span.skeleton.weather-widget__forecast-times!=forecast.times
+                    .skeleton.weather-widget__forecast-info
+                        +svg(forecast.icon).weather-widget__forecast-icon
+                        .weather-widget__forecast-degree!=forecast.degree

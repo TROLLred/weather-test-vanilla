@@ -13,7 +13,7 @@
 }
 
 .dark:root {
-    --primary-color: #BB86FC;//#BB86FC
+    --primary-color: #BB86FC; //#BB86FC;
     --background: #1E1E1E;
     --foreground: #272727;
     --text-color: #FFF;
@@ -26,16 +26,13 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     position: relative;
-    //height: 100%;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
 * {
     box-sizing: border-box;
-    transition: 
-        background-color $base-transition-time ease-in-out,
-        //color $base-transition-time ease-in-out;
+    transition: background-color $base-transition-time ease-in-out;
 }
 
 body {
@@ -134,3 +131,59 @@ svg {
 [data-modal] {
     cursor: pointer;
 }
+
+._loading-data .skeleton {
+    opacity: 1;
+    background-color: var(--background);
+    overflow: hidden;
+    fill: none;
+    svg {
+        fill: none;
+    }
+    color: transparent;
+    pointer-events: none;
+    border-radius: rem($spacing-10);
+    @include media-breakpoint-up(md) {
+        border-radius: rem($spacing-12);
+    }
+    @include media-breakpoint-up(fhd) {
+        padding: vw($spacing-20);
+        border-radius: vw($spacing-16);
+    }
+}
+
+._loading-data .skeleton, .skeleton-image {
+    background-size: rem($spacing-30) 100%;
+    background-repeat: no-repeat;
+    background-position: left -40px top 0; 
+    animation: shine 1.5s ease infinite;
+}
+
+.dark {
+    ._loading-data .skeleton, .skeleton-image {
+        background-image: linear-gradient(
+            90deg, 
+            rgba(#1E1E1E, 0), 
+            rgba(#FFF, 0.5),
+            rgba(#1E1E1E, 0)
+        );
+    }
+}
+.light {
+    ._loading-data .skeleton, .skeleton-image {
+        background-color: #DDD;
+        background-image: linear-gradient(
+            90deg, 
+            rgba(#FFF, 0), 
+            rgba(#FFF, 0.5),
+            rgba(#FFF, 0)
+        );
+    }
+}
+
+@keyframes shine {
+	to {
+		background-position: right -40px top 0;
+	}
+}
+

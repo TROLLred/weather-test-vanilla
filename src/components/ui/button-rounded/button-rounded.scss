@@ -22,7 +22,6 @@
     }
 
     &__icon, svg {
-        // TODO - fill или stroke вставить
         width: rem(14);
         height: rem(14);
         @include media-breakpoint-up(xl) {

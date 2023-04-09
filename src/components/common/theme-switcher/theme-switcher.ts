@@ -26,7 +26,6 @@ export default class ThemeSwitcher extends Component {
     };
 
     switcher?: Switcher;
-    switcherBtn?: HTMLElement;
     constructor(element: ComponentProps, options?: ThemeSwitcherOptions) {
         super(element);
         const switcher = getComponent('switcher', this.nRoot);
@@ -72,7 +71,5 @@ export default class ThemeSwitcher extends Component {
         document.documentElement.className = themeName;
     }
 
-    destroy = () => {
-        // Destroy function
-    }
+    destroy = () => {}
 }
