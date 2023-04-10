@@ -3,17 +3,13 @@ import Component from '@/base/component';
 import EventCard from '@/components/blocks/event-card/event-card';
 import ButtonRounded from '@/components/ui/button-rounded/button-rounded';
 import EventsSlider from '@/components/blocks/events-slider/events-slider';
-import SliderNavigation from '@/components/ui/slider-navigation/slider-navigation';
 import ThemeSwitcher from '@/components/common/theme-switcher/theme-switcher';
-import Switcher from '@/components/ui/switcher/switcher';
 import WeatherWidget from '@/components/blocks/weather-widget/weather-widget';
 
 // Набор всех компонентов, для которых будет применяться стандартная инициализация
 const allComponents: Record<string, any & Component> = {
-    switcher: Switcher,
     'theme-switcher': ThemeSwitcher,
     'button-rounded': ButtonRounded,
-    'slider-navigation': SliderNavigation,
     'events-slider': EventsSlider,
     'event-card': EventCard,
     'weather-widget': WeatherWidget,

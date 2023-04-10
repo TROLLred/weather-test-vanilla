@@ -54,7 +54,7 @@
             pointer-events: none;
             position: absolute;
             left: 120%;
-            
+
             @extend .text-3;
             content: 'Скопировано';
             color: rgba($white, .8);
@@ -158,6 +158,7 @@
                 bottom: 0;
                 background-image: $shadow-gradient;
                 opacity: .8;
+                pointer-events: none;
             }
         }
         #{$root}__title {

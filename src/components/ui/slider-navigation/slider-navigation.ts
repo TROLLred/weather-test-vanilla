@@ -12,6 +12,7 @@ export default class SliderNavigation extends Component {
 
     constructor(element: ComponentProps, options?: SliderNavigationOptions) {
         super(element);
+
         this.next = this.getElement('next');
         this.prev = this.getElement('prev');
 

@@ -26,19 +26,14 @@ export default class ThemeSwitcher extends Component {
     };
 
     switcher?: Switcher;
+
     constructor(element: ComponentProps, options?: ThemeSwitcherOptions) {
         super(element);
         const switcher = getComponent('switcher', this.nRoot);
         if (switcher?.component) {
-            this.switcher = new Switcher({
-                name: 'switcher',
-                component: switcher.component
-            })
+            this.switcher = new Switcher(switcher)
         }
-        const switcherBtn = getComponent('switcher__box', this.nRoot);
-        if (switcherBtn?.component) {
-            switcherBtn.component.addEventListener('click', this.toggleTheme)
-        }
+        this.switcher?.box?.addEventListener('click', this.toggleTheme)
         this.checkStorage();
     }
 
@@ -68,8 +63,11 @@ export default class ThemeSwitcher extends Component {
 
     setTheme = (themeName: string) => {
         this.setStorage(themeName);
-        document.documentElement.className = themeName;
+        document.documentElement.classList.remove(...Object.values(ThemeSwitcher.themeValues));
+        document.documentElement.classList.add(themeName);
     }
 
-    destroy = () => {}
+    destroy = () => {
+        this.switcher?.box?.removeEventListener('click', this.toggleTheme);
+    }
 }

@@ -3,13 +3,13 @@ import axios from 'axios';
 
 type WeatherWidgetOptions = ComponentOptions;
 
-type currentWeatherDataType = { 
+type currentWeatherDataType = {
     main: {
-        temp: number, 
+        temp: number,
         feels_like: number
-    }, 
+    },
     weather: [{
-        description: string, 
+        description: string,
         icon: string
     }],
 };
@@ -18,9 +18,9 @@ type forecastWeatherType = Array<{
     main: {
         temp: number,
     },
-    dt_txt: string, 
+    dt_txt: string,
     weather: [{
-        description: string, 
+        description: string,
         icon: string
     }],
 }>
@@ -70,11 +70,12 @@ export default class WeatherWidget extends Component {
         'ноября',
         'декабря',
     ];
+    // Это не костыль)
     /**
     * @description Костыль. Пары ключ-время для получения времени суток,
     * поскольку в бесплатном тарифе такой функционал не доступен
     */
-    private readonly TIMES = {
+    private readonly TIMES: Record<string, string> = {
         '06:00:00': 'Утром',
         '12:00:00': 'Днем',
         '18:00:00': 'Вечером',
@@ -93,15 +94,14 @@ export default class WeatherWidget extends Component {
     feelsLike?: HTMLElement;
     date?: HTMLElement;
     forecast?: HTMLElement;
-    forecastTimes?: HTMLElement[];
-    forecastIcons?: HTMLElement[];
-    forecastDegree?: HTMLElement[];
+    forecastTimes: HTMLElement[];
+    forecastIcons: HTMLElement[];
+    forecastDegree: HTMLElement[];
 
     constructor(element: ComponentProps, options?: WeatherWidgetOptions) {
         super(element);
 
         this.setIsLoading(true);
-        //@ts-ignore
         this.infoIcon = this.getElement('info-icon');
         this.infoDegree = this.getElement('info-degree');
         this.weather = this.getElement('weather');
@@ -116,7 +116,7 @@ export default class WeatherWidget extends Component {
         this.setDate();
         this.getWeatherData(this.DEFAULT_CITY);
     }
-    
+
     setDate = () => {
         const date = new Date();
         const day = this.DAYS[date.getDay()];
@@ -136,7 +136,7 @@ export default class WeatherWidget extends Component {
                 .then((res) => {
                     this.setForecastWeather(res.data.list);
                 }).catch(err => this.errorReaction(err))
-            
+
             // NOTE: Для теста ошибки
             // this.errorReaction('');
 
@@ -150,11 +150,11 @@ export default class WeatherWidget extends Component {
         const temp = (Math.round(data.main.temp) > 0) ?
             `+${Math.round(data.main.temp)}`:
             Math.round(data.main.temp);
-        this.infoDegree && 
+        this.infoDegree &&
             (this.infoDegree.innerHTML = `${temp}&deg;`);
-        this.weatherType && 
+        this.weatherType &&
             (this.weatherType.innerText = data.weather[0].description);
-        this.feelsLike && 
+        this.feelsLike &&
             (this.feelsLike.innerHTML = `Ощущается как ${Math.round(data.main.feels_like)}&deg;`);
         this.infoIcon && (
             this.infoIcon.innerHTML = `<use xlink:href="#${data.weather[0].icon}"></use>`
@@ -162,12 +162,11 @@ export default class WeatherWidget extends Component {
     }
 
     setForecastWeather = (list: forecastWeatherType) => {
-        const currentTimes = new Array();
-        const filteredList = list.filter((item: any) => {
+        const currentTimes: any[] = [];
+        const filteredList = list.filter((item) => {
             const { dt_txt } = item;
             const time = (dt_txt as string).substring(11);
             if (time in this.TIMES) {
-                //@ts-ignore
                 currentTimes.push(this.TIMES[time])
                 return true;
             }
@@ -192,8 +191,8 @@ export default class WeatherWidget extends Component {
             this.nRoot.classList.add(WeatherWidget.classNames.loading);
         } else {
             // NOTE: Чтобы при быстром интернете была более заметна анимация склетона
-            //setTimeout(() => 
-            //    this.nRoot.classList.remove(WeatherWidget.classNames.loading), 
+            //setTimeout(() =>
+            //    this.nRoot.classList.remove(WeatherWidget.classNames.loading),
             //2000)
             this.nRoot.classList.remove(WeatherWidget.classNames.loading)
         }
