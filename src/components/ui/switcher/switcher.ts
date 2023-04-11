@@ -4,9 +4,12 @@ type SwitcherOptions = ComponentOptions;
 
 export default class Switcher extends Component {
     checkbox?: HTMLInputElement;
+    box?: HTMLElement;
+
     constructor(element: ComponentProps, options?: SwitcherOptions) {
         super(element);
         this.checkbox = this.getElement('checkbox');
+        this.box = this.getElement('box');
     }
 
     setCheckedValue = (value: boolean): void => {
@@ -15,8 +18,8 @@ export default class Switcher extends Component {
         }
     }
 
-    isChecked = (): boolean | undefined => {
-        return this.checkbox?.checked;
+    isChecked = (): boolean => {
+        return !!this.checkbox?.checked;
     }
 
     destroy = () => {}

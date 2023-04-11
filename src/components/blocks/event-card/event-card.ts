@@ -10,7 +10,7 @@ export default class EventCard extends Component {
 
     title?: HTMLElement;
     subtitle?: HTMLElement;
-    info?: HTMLElement[];
+    info: HTMLElement[];
     copyBtn?: HTMLElement;
 
     constructor(element: ComponentProps, options?: EventCardOptions) {
@@ -24,10 +24,10 @@ export default class EventCard extends Component {
     }
 
     templateAssembly = () => {
-        const template = new Array;
+        const template = [];
         this.title && template.push(this.title.innerText)
         this.subtitle && template.push(this.subtitle.innerText)
-        this.info && this.info.map(el => template.push(el.innerText))
+        this.info.map(el => template.push(el.innerText))
         return template.length ? template.join('. ') : '';
     };
 

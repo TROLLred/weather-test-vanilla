@@ -1,7 +1,7 @@
 mixin switcher(props)
     -
         let idCheckbox = props.id ? props.id : 'switcher';
-    .switcher&attributes(attributes)(data-component='switcher')
+    .switcher&attributes(attributes)
         if props.label
             span.switcher__label!=props.label
         .switcher__box
